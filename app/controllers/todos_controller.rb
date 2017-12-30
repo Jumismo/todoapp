@@ -22,7 +22,7 @@ class TodosController < ApplicationController
     @todo = Todo.find(params[:id])
   end
   
-  def udpate
+  def update
     @todo = Todo.find(params[:id])
     if @todo.update(todo_params)
       flash[:notice] = "Todo was successfully updated"
@@ -30,6 +30,10 @@ class TodosController < ApplicationController
     else
       render 'edit'
     end
+  end
+  
+  def index
+    @todos = Todo.all
   end
   
   private
